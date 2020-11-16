@@ -1,0 +1,57 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">Contact</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <form #contactForm='ngForm' (ngSubmit)='addContact()' >
+            <div class="form-group">
+              <input type="input" class="form-control" [(ngModel)]='contact.firstName' [ngModelOptions]="{standalone: true}" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <input type="input" class="form-control"  [(ngModel)]='contact.lastName'[ngModelOptions]="{standalone: true}" placeholder="Last Name">
+              </div>
+            <div class="form-group">
+              <input type="email" class="form-control" [(ngModel)]='contact.email'[ngModelOptions]="{standalone: true}" placeholder="Email">
+            </div>
+          
+            <div class="form-group">
+              <input type="input" class="form-control" [(ngModel)]='contact.subject' [ngModelOptions]="{standalone: true}" placeholder="Subject">
+            </div>
+            <div class="form-group">
+              <textarea name="" class="form-control" id="" cols="30" rows="10" [(ngModel)]='contact.Me' [ngModelOptions]="{standalone: true}"placeholder="Write Message"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary py-3 px-5" >Send </button>
+            </div>
+          </form>  
+        </div>
+        <div class="col-lg-4 ml-auto">
+          
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <strong class="text-white d-block">Address</strong>
+              273 South Riverview Rd. <br> New York, NY 10011
+            </li>
+            <li class="mb-2">
+              <strong class="text-white d-block">Email</strong>
+              <a href="#">info@unslate.co</a>
+            </li>
+            <li class="mb-2">
+              <strong class="text-white d-block">
+                Phone
+              </strong>
+              <a href="#">+12 345 6789 012</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

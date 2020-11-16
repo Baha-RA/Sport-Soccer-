@@ -1,0 +1,96 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">Add Player</h1>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form [formGroup]='PublicForm' >
+                    <!-- accolade {} -->
+                    <!-- crochet [] -->
+                <!-- <form #PlayerForm='ngForm'> -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='firstName' placeholder="First Name">
+                    </div>
+                     <div *ngIf="PublicForm.controls['firstName'].invalid && 
+                    (PublicForm.controls['firstName'].dirty || PublicForm.controls['firstName'].touched)">
+                        <div *ngIf="PublicForm.controls['firstName'].errors.minlength" class="text-danger" >
+                            First name must have at least 5 characters !!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='lastName' placeholder="Last Name">
+                    </div>
+                    <div *ngIf="PublicForm.controls['lastName'].invalid && 
+                    (PublicForm.controls['lastName'].dirty || PublicForm.controls['lastName'].touched)">
+                        <div *ngIf="PublicForm.controls['lastName'].errors.required" class="text-danger" >
+                           Last name must exist !!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='email' placeholder="email">
+                    </div>
+                    <div *ngIf="PublicForm.controls['email'].invalid && 
+                    (PublicForm.controls['email'].dirty || PublicForm.controls['email'].touched)">
+                        <div *ngIf="PublicForm.controls['email'].errors.email" class="text-danger" >
+                           Invalid Format !!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='pwd' placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='confPwd' placeholder="Confirm Password">
+                    </div>
+                    <div *ngIf="PublicForm.controls['confPwd'].invalid && 
+                    (PublicForm.controls['confPwd'].dirty || PublicForm.controls['confPwd'].touched)">
+                        <div *ngIf="PublicForm.controls['confPwd'].errors.mustMatch" class="text-danger" >
+                          Please Verify  !!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='phone' placeholder="Phone">
+                    </div>
+                    <!-- <div *ngIf="PlayerForm.controls['name'].invalid && 
+                    PlayerForm.controls['name'].dirty || PlayerForm.controls['name'].touched">
+                        <div *ngIf="PlayerForm.controls['name'].errors.minlength" class="text-danger" >
+                            First name must have at least 5 characters !!
+                        </div>
+                    </div> -->
+                    
+                    <!-- Pour afficher les messages d'erreurs -->
+                    <!-- dirty: champ modifié mais n'est conforme avec la condition donnée -->
+                    <!-- touched: champ touché sans aucune modification -->                   
+  
+                    <!-- <div *ngIf="PlayerForm.controls['birthdate'].invalid && 
+                    PlayerForm.controls['birthdate'].dirty || PlayerForm.controls['birthdate'].touched">
+                        <div *ngIf="PlayerForm.controls['birthdate'].errors.maxlength" class="text-danger" >
+                            age Invalid !!
+                        </div>
+                    </div> -->
+                   
+                    <!-- <div *ngIf="PlayerForm.controls['postion'].invalid && 
+                    PlayerForm.controls['postion'].dirty || PlayerForm.controls['postion'].touched">
+                        <div *ngIf="PlayerForm.controls['postion'].errors.minlength" class="text-danger" >
+                            First name must have at least 8 characters !!
+                        </div>
+                        <div *ngIf="PlayerForm.controls['postion'].errors.maxlength" class="text-danger" >
+                            First name must have at most 12 characters !!
+                        </div>
+                    </div> -->
+                
+                    <div class="form-group">
+                        <button type="submit" [disabled]='PublicForm.invalid' (click)='addPublics(PublicForm.value)' class="btn btn-primary py-3 px-5">Add Player</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,10 @@
+<div class="container site-section">
+  <div class="row">
+
+      <div *ngFor='let c of allUsers' class="col-6">
+          <app-user [user]='c'></app-user>
+          <!-- <app-one-player *ngIf='display(c,"DEF")' [player]='c'></app-one-player> -->
+
+      </div>
+  </div>
+</div>

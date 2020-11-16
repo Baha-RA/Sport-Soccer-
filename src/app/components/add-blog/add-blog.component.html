@@ -1,0 +1,64 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">Add Blog</h1>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form [formGroup]='blogForm' >
+                    <!-- accolade {} -->
+                    <!-- crochet [] -->
+                <!-- <form #blogForm='ngForm'> -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='firstName' placeholder="First Name">
+                    </div>
+                    <div *ngIf="blogForm.controls['firstName'].invalid && 
+                    blogForm.controls['firstName'].dirty || blogForm.controls['firstName'].touched">
+                        <div *ngIf="blogForm.controls['firstName'].errors.minlength" class="text-danger" >
+                            First name must have at least 5 characters !!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='lastName' placeholder="Last name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='age' placeholder="Age">
+                    </div>
+                    <!-- Pour afficher les messages d'erreurs -->
+                    <!-- dirty: champ modifié mais n'est conforme avec la condition donnée -->
+                    <!-- touched: champ touché sans aucune modification -->                   
+  
+                    <div *ngIf="blogForm.controls['age'].invalid && 
+                    blogForm.controls['age'].dirty || blogForm.controls['age'].touched">
+                        <div *ngIf="blogForm.controls['age'].errors.age" class="text-danger" >
+                            Email Invalid !!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName='position' placeholder="Position">
+                    </div>
+                    <div *ngIf="blogForm.controls['position'].invalid && 
+                    blogForm.controls['position'].dirty || blogForm.controls['position'].touched">
+                        <div *ngIf="blogForm.controls['position'].errors.minlength" class="text-danger" >
+                            First name must have at least 8 characters !!
+                        </div>
+                        <div *ngIf="blogForm.controls['position'].errors.maxlength" class="text-danger" >
+                            First name must have at most 12 characters !!
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <button type="submit" [disabled]='blogForm.invalid' (click)='addPlayer(blogForm.value)' class="btn btn-primary py-3 px-5">Add Player</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  
