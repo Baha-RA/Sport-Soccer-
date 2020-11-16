@@ -9,20 +9,20 @@ import { PublicService } from 'src/app/services/public.service';
   styleUrls: ['./display-public.component.css']
 })
 export class DisplayPublicComponent implements OnInit {
-  id:any;
-  public:any;
+  id: any;
+  public: any;
 
-  constructor(private activatedrouter:ActivatedRoute,
-    private publicService:PublicService) { }
+  constructor(private activatedrouter: ActivatedRoute,
+    private publicService: PublicService) { }
 
   ngOnInit(): void {
-    this.id=this.activatedrouter.snapshot.paramMap.get('id');
-this.publicService.getPublicById(this.id).subscribe(
-  data=>{
-    this.public=data;
-  }
+    this.id = this.activatedrouter.snapshot.paramMap.get('id');
+    this.publicService.getPublicById(this.id).subscribe(
+      data => {
+        this.public = data;
+      }
 
-)
+    )
   }
 
 }
